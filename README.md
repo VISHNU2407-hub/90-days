@@ -83,3 +83,24 @@ Analytics · Settings.
 - Every screen has loading, empty and error states — no blank screens.
 - Light-first design with a dark mode, responsive down to a phone (bottom
   navigation + drawer, one-tap task completion, fast DSA logging).
+
+---
+
+## Deploy to Vercel
+
+The app is a static SPA with zero environment variables (all data lives in
+`localStorage`). `vercel.json` pins the Vite build settings and adds the SPA rewrite
+so every route deep-links correctly.
+
+**Option A — Git integration (recommended):** push the repo, then in Vercel
+*Add New Project* → import the repo. It auto-detects Vite; no configuration needed.
+
+**Option B — CLI:**
+
+```bash
+npm i -g vercel
+vercel        # preview
+vercel --prod # production
+```
+
+Build command: `npm run build` (typecheck + Vite build) · output: `dist/` · Node ≥ 22.12.
